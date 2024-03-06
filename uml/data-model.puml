@@ -1,0 +1,63 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+object client {
+    -id: INTEGER [PK]
+    -firstname: VARCHAR [100]
+    -lastname: VARCHAR [100]
+    -address: VARCHAR [255]
+    -zipCode: VARCHAR [10]
+    -city: VARCHAR [100]
+    -phone: VARCHAR [20]
+    -email: VARCHAR [100]
+    -password: VARCHAR [60]
+    -createdAt: DATETIME
+    -updatedAt: DATETIME
+}
+
+object meal {
+    -id: INTEGER [PK]
+    -name: VARCHAR [100]
+    -type: VARCHAR [100]
+    -isDailyDish: TINYINT [1]
+    -quantity: INTEGER
+    -description: TEXT
+    -price: DECIMAL
+    -createdAt: DATETIME
+    -updatedAt: DATETIME
+}
+
+object delivery_man {
+    -id: INTEGER [PK]
+    -firstname: VARCHAR [100]
+    -lastname: VARCHAR [100]
+    -phone: VARCHAR [20]
+    -email: VARCHAR [100]
+    -password: VARCHAR [60]
+    -status: TINYINT [1]
+    -position: VARCHAR [255]
+    -createdAt: DATETIME
+    -updatedAt: DATETIME
+}
+
+object order {
+    -id: INTEGER [PK]
+    -client_id: INTEGER [FK]
+    -deliveryMan_id: INTEGER [FK]
+    -status: TINYINT [1]
+    -paidStatus: TINYINT [1]
+    -createdAt: DATETIME
+    -updatedAt: DATETIME
+}
+
+object order_meal {
+    -order_id: INTEGER [FK]
+    -meal_id: INTEGER [FK]
+}
+
+client - order
+order - order_meal
+meal - order_meal
+order - delivery_man
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+actor Livreur #dodgerblue;line:dodgerblue;line.bold;text:black
+
+package "Livraison d'une commande" #dodgerblue;line:dodgerblue;line.bold;text:white {
+  usecase "Mettre à jour sa disponibilité" as update
+  usecase "Voir les commandes en cours" as showOrders
+  usecase "Voir le détail d'une commande" as showOrderDetail
+  usecase "Accepter la livraison" as acceptDelivery
+  usecase "Refuser la livraison" as refuseDelivery
+  usecase "Indiquer le temps de livraison" as indicateDeliveryTime
+  usecase "Effectuer la livraison" as deliver
+  usecase "Encaisser la commande" as cash
+  usecase "MAJ le statut de la commande" as updateOrderStatus
+}
+
+Livreur --> update
+Livreur --> showOrders
+showOrders --> showOrderDetail
+showOrderDetail --> acceptDelivery
+showOrderDetail --> refuseDelivery
+acceptDelivery --> indicateDeliveryTime
+indicateDeliveryTime --> deliver
+deliver --> cash
+cash --> updateOrderStatus
+deliver --> updateOrderStatus
+
+@enduml

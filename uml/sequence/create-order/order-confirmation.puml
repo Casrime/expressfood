@@ -1,0 +1,19 @@
+@startuml
+autonumber
+title       Client wants to choose payment
+actor       Client
+participant Application
+database    Database
+participant "Payment system" as PaymentSystem
+
+ref over Client, Application, Database: Show basket
+ref over Client, Application, Database: Authentication
+ref over Client, Application, Database: Validate basket
+ref over Client, Application, Database: Enter delivery informations
+ref over Client, Application, Database, PaymentSystem: Choose payment
+Client -> Application: Show order confirmation page
+Application -> Database: Get order with informations
+Database -> Application: Order with informations
+Application -> Client: Show order confirmation page
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+autonumber
+title       Client wants to enter delivery informations
+actor       Client
+participant Application
+database    Database
+
+ref over Client, Application, Database: Show basket
+ref over Client, Application, Database: Authentication
+ref over Client, Application, Database: Validate basket
+Client -> Application: Show delivery informations page
+Application -> Database: Get delivery informations
+Database -> Application: Delivery informations
+Application -> Client: Show delivery informations page
+Client -> Application: Enter delivery informations
+Application -> Database: Save delivery informations
+Database -> Application: Delivery informations saved
+Application -> Client: Show payment page
+
+@enduml

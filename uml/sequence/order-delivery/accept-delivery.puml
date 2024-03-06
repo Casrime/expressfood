@@ -1,0 +1,15 @@
+@startuml
+autonumber
+title       DeliveryMan wants to accept delivery
+actor       DeliveryMan
+participant Application
+database    Database
+
+ref over DeliveryMan, Application, Database: Show in progress orders
+ref over DeliveryMan, Application, Database: Show order detail
+DeliveryMan -> Application: Accept delivery
+Application -> Database: Update order with delivery man
+Database -> Application: Order updated
+Application -> DeliveryMan: Show indicate delivery page
+
+@enduml

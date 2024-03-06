@@ -1,0 +1,14 @@
+@startuml
+autonumber
+title       DeliveryMan wants to show order detail
+actor       DeliveryMan
+participant Application
+database    Database
+
+ref over DeliveryMan, Application, Database: Show in progress orders
+DeliveryMan -> Application: Show order detail
+Application -> Database: Get order detail
+Database -> Application: Return order detail
+Application -> DeliveryMan: Return order detail page with order detail
+
+@enduml

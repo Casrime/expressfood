@@ -1,0 +1,20 @@
+@startuml
+autonumber
+title       Client wants to validate basket
+actor       Client
+participant Application
+database    Database
+
+ref over Client, Application, Database: Show basket
+ref over Client, Application, Database: Authentication
+Client -> Application: Validate basket
+Application -> Database: Check if meals are available
+alt Meals are available
+    Database -> Application: Meals are available
+    Application -> Client: Basket is valid with success message
+else Meals are not available
+    Database -> Application: Meals are not available
+    Application -> Client: Basket is invalid with error message
+end
+
+@enduml

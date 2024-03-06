@@ -1,0 +1,13 @@
+@startuml
+autonumber
+title       Chief wants to add daily dish
+actor       Chief
+participant Application
+database    Database
+
+Chief -> Application: Add daily dish
+Application -> Database: Add daily dish
+Database -> Application: Daily dish added
+Application -> Chief: Daily dish added
+
+@enduml

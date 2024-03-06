@@ -1,0 +1,146 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Client {
+    -id
+    -firstname
+    -lastname
+    -address
+    -zipCode
+    -city
+    -phone
+    -email
+    -password
+    -orders
+    -createdAt
+    -updatedAt
+    +getId()
+    +getFirstname()
+    +setFirstname()
+    +getLastname()
+    +setLastname()
+    +getAddress()
+    +setAddress()
+    +getZipCode()
+    +setZipCode()
+    +getCity()
+    +setCity()
+    +getPhone()
+    +setPhone()
+    +getEmail()
+    +setEmail()
+    +getPassword()
+    +setPassword()
+    +getOrders()
+    +addOrder()
+    +removeOrder()
+    +getCreatedAt()
+    +setCreatedAt()
+    +getUpdatedAt()
+    +setUpdatedAt()
+}
+
+class Meal {
+    -id
+    -name
+    -type
+    -isDailyDish
+    -quantity
+    -description
+    -price
+    -createdAt
+    -updatedAt
+    -orders
+    +getId()
+    +getName()
+    +setName()
+    +getType()
+    +setType()
+    +getIsDailyDish()
+    +setIsDailyDish()
+    +getQuantity()
+    +setQuantity()
+    +getDescription()
+    +setDescription()
+    +getPrice()
+    +setPrice()
+    +getCreatedAt()
+    +setCreatedAt()
+    +getUpdatedAt()
+    +setUpdatedAt()
+    +getOrders()
+    +addOrder()
+    +removeOrder()
+}
+
+class DeliveryMan {
+    -id
+    -firstname
+    -lastname
+    -phone
+    -email
+    -password
+    -status
+    -position
+    -createdAt
+    -updatedAt
+    -orders
+    +getId()
+    +getFirstname()
+    +setFirstname()
+    +getLastname()
+    +setLastname()
+    +getPhone()
+    +setPhone()
+    +getEmail()
+    +setEmail()
+    +getPassword()
+    +setPassword()
+    +getStatus()
+    +setStatus()
+    +getPosition()
+    +setPosition()
+    +getOrders()
+    +addOrder()
+    +removeOrder()
+    +getCreatedAt()
+    +setCreatedAt()
+    +getUpdatedAt()
+    +setUpdatedAt()
+}
+
+class Order {
+    -id
+    -client
+    -meals
+    -deliveryMan
+    -status
+    -paidStatus
+    -createdAt
+    -updatedAt
+    +getId()
+    +getClient()
+    +setClient()
+    +getMeals()
+    +setMeals()
+    +getDeliveryMan()
+    +setDeliveryMan()
+    +getStatus()
+    +setStatus()
+    +getPaidStatus()
+    +setPaidStatus()
+    +getCreatedAt()
+    +setCreatedAt()
+    +getUpdatedAt()
+    +setUpdatedAt()
+}
+
+Client -{ Order
+Meal }-{ Order
+DeliveryMan -{ Order
+
+
+@enduml
+ 'La liste des différents plats du jour
+ 'La liste des livreurs, avec leur statut (libre, en cours de livraison) et leur position
+ 'La liste des commandes passées

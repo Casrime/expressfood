@@ -1,0 +1,11 @@
+@startuml
+autonumber
+title       Client wants to show basket
+actor       Client
+participant Application
+database    Database
+
+Client -> Application: Show basket
+Application -> Client: Render basket page
+
+@enduml

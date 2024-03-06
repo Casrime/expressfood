@@ -1,0 +1,13 @@
+@startuml
+autonumber
+title       DeliveryMan wants to show in progress orders
+actor       DeliveryMan
+participant Application
+database    Database
+
+DeliveryMan -> Application: Show in progress orders
+Application -> Database: Get in progress orders
+Database -> Application: Return in progress orders
+Application -> DeliveryMan: Return in progress orders page with orders
+
+@enduml

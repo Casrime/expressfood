@@ -1,0 +1,20 @@
+@startuml
+autonumber
+title       Client wants to authenticate
+actor       Client
+participant Application
+database    Database
+
+Client -> Application: Go on auth page
+Application -> Client: Render auth page
+Client -> Application: Submit credentials
+Application -> Database: Check credentials
+alt Credentials are valid
+    Database -> Application: Return user data
+    Application -> Client: Redirect to home page
+else Credentials are invalid
+    Database -> Application: Return error
+    Application -> Client: Render error message
+end
+
+@enduml

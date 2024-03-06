@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+actor Client as client #dodgerblue;line:dodgerblue;line.bold;text:black
+
+package "Création d'une commande" #dodgerblue;line:dodgerblue;line.bold;text:white {
+  usecase "Authentification" as auth
+  usecase "Ajouter un plat du jour" as addDailyDish
+  usecase "Voir son panier" as viewCart
+  usecase "Valider le panier" as validateCart
+  usecase "Saisir les informations de livraison" as deliveryInfo
+  usecase "Choix du paiement" as pay
+  usecase "Confirmation de commande" as confirmation
+}
+
+client --> addDailyDish
+client --> viewCart
+viewCart --> validateCart
+validateCart .> auth: include
+validateCart --> deliveryInfo
+deliveryInfo --> pay
+pay --> confirmation
+
+@enduml

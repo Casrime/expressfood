@@ -1,0 +1,11 @@
+@startuml
+
+actor "Chef cuisinier" as chief #dodgerblue;line:dodgerblue;line.bold;text:black
+
+package "Ajouter un plat du jour" #dodgerblue;line:dodgerblue;line.bold;text:white {
+  usecase "Ajouter un plat du jour" as addDailyDish
+}
+
+chief -> addDailyDish
+
+@enduml

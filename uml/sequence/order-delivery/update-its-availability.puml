@@ -1,0 +1,15 @@
+@startuml
+autonumber
+title       DeliveryMan wants to update its availability
+actor       DeliveryMan
+participant Application
+database    Database
+
+DeliveryMan -> Application: Show availability page
+Application -> DeliveryMan: Render availability page
+DeliveryMan -> Application: Update availability
+Application -> Database: Update availability
+Database -> Application: Updated availability
+Application -> DeliveryMan: Show updated availability
+
+@enduml
